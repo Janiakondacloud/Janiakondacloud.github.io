@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 学习基地</title>
+    <link>https://Janiakondacloud.github.io/post/</link>
+    <description>Recent content in Posts on 学习基地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 May 2021 21:17:25 +0800</lastBuildDate><atom:link href="https://Janiakondacloud.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog4</title>
+      <link>https://Janiakondacloud.github.io/post/blog4/</link>
+      <pubDate>Wed, 19 May 2021 21:17:25 +0800</pubDate>
+      
+      <guid>https://Janiakondacloud.github.io/post/blog4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blog3</title>
+      <link>https://Janiakondacloud.github.io/post/blog3/</link>
+      <pubDate>Wed, 19 May 2021 21:17:16 +0800</pubDate>
+      
+      <guid>https://Janiakondacloud.github.io/post/blog3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blog2</title>
+      <link>https://Janiakondacloud.github.io/post/blog2/</link>
+      <pubDate>Wed, 19 May 2021 21:09:15 +0800</pubDate>
+      
+      <guid>https://Janiakondacloud.github.io/post/blog2/</guid>
+      <description>概况  设计模式是内功，在代码编写过程中不言而喻，从解决问题到框架到整个软件的架构起到至关重要的作用。 Design Pattern是对软件设计中普遍存在的各种问题，所提出的解决问题方案。 使用设计模式设计让程序具有更好的维护性，可拓展性。 一般面试中会问用到什么设计模式，怎么用的？解决了什么问题？ 设计模式在软件中哪里呢？面向对象（oo)-&amp;gt;功能模块（设计模式+算法数据结构）-&amp;gt;框架（多种设计模式）-&amp;gt;架构（服务器集群）。 如果想成为合格的软件工程师，设计模式是必须要掌握的。  设计模式七大原则 设计模式的目的：高内聚低耦合，增加可拓展性可维护性（增加新功能很方便），重用性（相同的功能不需要多次编写），灵活性，可读性（编程规范性，便于其他程序员理解和阅读），可靠性（在增加新功能的同时对原来的功能没有影响）因此为了达到这个目的引入下面七大原则。
+ 单一职责原则 接口隔离原则 依赖倒转原则 里氏替换原则 开闭原则-ocp(Open Closed Principle) 迪米特法则 合成复用原则  单一职责原则 对于类来说，每个类只负责一项职责。
+以下例子逐渐演进：
+方式1：
+方式2：
+方式3：
+以上代码如果用Ifelse来判断的话将会导致代码冗余臃肿，导致代码维护性和可读性降低。
+通过以上的例子我们可以总结出单一原则的注意事项和细节：
+ 降低了类的复杂度，一个类只用负责一项职责。 降低了类的可读性和可维护性。 降低了变更引起的风险。 通常情况下，我们应该遵循单一原则，只要逻辑足够简单才可以违背单一原则， 只有类的方法数量足够少，可以在方法级别保持单一职责原则。  接口隔离原则 单例模式 只需要单个实例存在，例如各种Manager，Clenader等。
+饿汉式单例模式 饿汉式：类加载到内存后就实例化一个单例，JVM保证线程安全。唯一缺点：不管是否用到，类装载的时候就会实例化。
+public class HungrySingle { private final static HungrySingle INSTANCE = new HungrySingle(); private HungrySingle(){};/*这是关键，让外部不能new出这个对象*/ public static HungrySingle getInstance(){ return INSTANCE; } public void m(){ System.out.println(&amp;#34;m&amp;#34;); } public static void main(String[] args) { HungrySingle h1 = HungrySingle.</description>
+    </item>
+    
+  </channel>
+</rss>

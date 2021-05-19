@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Blog2 // 学习基地</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://Janiakondacloud.github.io/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Blog2"/>
+<meta name="twitter:description" content="概况  设计模式是内功，在代码编写过程中不言而喻，从解决问题到框架到整个软件的架构起到至关重要的作用。 Design Pattern是对软件设计中普遍存在的各种问题，所提出的解决问题方案。 使用设计模式设计让程序具有更好的维护性，可拓展性。 一般面试中会问用到什么设计模式，怎么用的？解决了什么问题？ 设计模式在软件中哪里呢？面向对象（oo)-&gt;功能模块（设计模式&#43;算法数据结构）-&gt;框架（多种设计模式）-&gt;架构（服务器集群）。 如果想成为合格的软件工程师，设计模式是必须要掌握的。  设计模式七大原则 设计模式的目的：高内聚低耦合，增加可拓展性可维护性（增加新功能很方便），重用性（相同的功能不需要多次编写），灵活性，可读性（编程规范性，便于其他程序员理解和阅读），可靠性（在增加新功能的同时对原来的功能没有影响）因此为了达到这个目的引入下面七大原则。
+ 单一职责原则 接口隔离原则 依赖倒转原则 里氏替换原则 开闭原则-ocp(Open Closed Principle) 迪米特法则 合成复用原则  单一职责原则 对于类来说，每个类只负责一项职责。
+以下例子逐渐演进：
+方式1：
+方式2：
+方式3：
+以上代码如果用Ifelse来判断的话将会导致代码冗余臃肿，导致代码维护性和可读性降低。
+通过以上的例子我们可以总结出单一原则的注意事项和细节：
+ 降低了类的复杂度，一个类只用负责一项职责。 降低了类的可读性和可维护性。 降低了变更引起的风险。 通常情况下，我们应该遵循单一原则，只要逻辑足够简单才可以违背单一原则， 只有类的方法数量足够少，可以在方法级别保持单一职责原则。  接口隔离原则 单例模式 只需要单个实例存在，例如各种Manager，Clenader等。
+饿汉式单例模式 饿汉式：类加载到内存后就实例化一个单例，JVM保证线程安全。唯一缺点：不管是否用到，类装载的时候就会实例化。
+public class HungrySingle { private final static HungrySingle INSTANCE = new HungrySingle(); private HungrySingle(){};/*这是关键，让外部不能new出这个对象*/ public static HungrySingle getInstance(){ return INSTANCE; } public void m(){ System.out.println(&#34;m&#34;); } public static void main(String[] args) { HungrySingle h1 = HungrySingle."/>
+
+    <meta property="og:title" content="Blog2" />
+<meta property="og:description" content="概况  设计模式是内功，在代码编写过程中不言而喻，从解决问题到框架到整个软件的架构起到至关重要的作用。 Design Pattern是对软件设计中普遍存在的各种问题，所提出的解决问题方案。 使用设计模式设计让程序具有更好的维护性，可拓展性。 一般面试中会问用到什么设计模式，怎么用的？解决了什么问题？ 设计模式在软件中哪里呢？面向对象（oo)-&gt;功能模块（设计模式&#43;算法数据结构）-&gt;框架（多种设计模式）-&gt;架构（服务器集群）。 如果想成为合格的软件工程师，设计模式是必须要掌握的。  设计模式七大原则 设计模式的目的：高内聚低耦合，增加可拓展性可维护性（增加新功能很方便），重用性（相同的功能不需要多次编写），灵活性，可读性（编程规范性，便于其他程序员理解和阅读），可靠性（在增加新功能的同时对原来的功能没有影响）因此为了达到这个目的引入下面七大原则。
+ 单一职责原则 接口隔离原则 依赖倒转原则 里氏替换原则 开闭原则-ocp(Open Closed Principle) 迪米特法则 合成复用原则  单一职责原则 对于类来说，每个类只负责一项职责。
+以下例子逐渐演进：
+方式1：
+方式2：
+方式3：
+以上代码如果用Ifelse来判断的话将会导致代码冗余臃肿，导致代码维护性和可读性降低。
+通过以上的例子我们可以总结出单一原则的注意事项和细节：
+ 降低了类的复杂度，一个类只用负责一项职责。 降低了类的可读性和可维护性。 降低了变更引起的风险。 通常情况下，我们应该遵循单一原则，只要逻辑足够简单才可以违背单一原则， 只有类的方法数量足够少，可以在方法级别保持单一职责原则。  接口隔离原则 单例模式 只需要单个实例存在，例如各种Manager，Clenader等。
+饿汉式单例模式 饿汉式：类加载到内存后就实例化一个单例，JVM保证线程安全。唯一缺点：不管是否用到，类装载的时候就会实例化。
+public class HungrySingle { private final static HungrySingle INSTANCE = new HungrySingle(); private HungrySingle(){};/*这是关键，让外部不能new出这个对象*/ public static HungrySingle getInstance(){ return INSTANCE; } public void m(){ System.out.println(&#34;m&#34;); } public static void main(String[] args) { HungrySingle h1 = HungrySingle." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Janiakondacloud.github.io/post/blog2/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-05-19T21:09:15&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-19T21:09:15&#43;08:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://Janiakondacloud.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>学习基地</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Blog2</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          May 19, 2021
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="概况">概况</h1>
+<ul>
+<li>设计模式是内功，在代码编写过程中不言而喻，从解决问题到框架到整个软件的架构起到至关重要的作用。</li>
+<li>Design Pattern是对软件设计中普遍存在的各种问题，所提出的解决问题方案。</li>
+<li>使用设计模式设计让程序具有更好的维护性，可拓展性。</li>
+<li>一般面试中会问用到什么设计模式，怎么用的？解决了什么问题？</li>
+<li>设计模式在软件中哪里呢？面向对象（oo)-&gt;功能模块（设计模式+算法数据结构）-&gt;框架（多种设计模式）-&gt;架构（服务器集群）。</li>
+<li>如果想成为合格的软件工程师，设计模式是必须要掌握的。</li>
+</ul>
+<h1 id="设计模式七大原则">设计模式七大原则</h1>
+<p>设计模式的目的：高内聚低耦合，增加可拓展性可维护性（增加新功能很方便），重用性（相同的功能不需要多次编写），灵活性，可读性（编程规范性，便于其他程序员理解和阅读），可靠性（在增加新功能的同时对原来的功能没有影响）因此为了达到这个目的引入下面七大原则。</p>
+<ul>
+<li>单一职责原则</li>
+<li>接口隔离原则</li>
+<li>依赖倒转原则</li>
+<li>里氏替换原则</li>
+<li>开闭原则-ocp(Open Closed Principle)</li>
+<li>迪米特法则</li>
+<li>合成复用原则</li>
+</ul>
+<h2 id="单一职责原则">单一职责原则</h2>
+<p><strong>对于类来说，每个类只负责一项职责。</strong></p>
+<p>以下例子逐渐演进：</p>
+<p>方式1：</p>
+<p><img src="../../../../Typora/react/img/image-20210125133922295.png" alt="image-20210125133922295"></p>
+<p>方式2：</p>
+<p><img src="../../../../Typora/react/img/image-20210125134121631.png" alt="image-20210125134121631"></p>
+<p>方式3：</p>
+<p><img src="../../../../Typora/react/img/image-20210125134516173.png" alt="image-20210125134516173"></p>
+<p>以上代码如果用Ifelse来判断的话将会导致代码冗余臃肿，导致代码维护性和可读性降低。</p>
+<p>通过以上的例子我们可以总结出单一原则的注意事项和细节：</p>
+<ol>
+<li>降低了类的复杂度，一个类只用负责一项职责。</li>
+<li>降低了类的可读性和可维护性。</li>
+<li>降低了变更引起的风险。</li>
+<li>通常情况下，<strong>我们应该遵循单一原则</strong>，只要逻辑足够简单才可以违背单一原则， 只有类的方法数量足够少，可以在方法级别保持单一职责原则。</li>
+</ol>
+<h2 id="接口隔离原则">接口隔离原则</h2>
+<h1 id="单例模式">单例模式</h1>
+<p>只需要单个实例存在，例如各种Manager，Clenader等。</p>
+<h2 id="饿汉式单例模式">饿汉式单例模式</h2>
+<p>饿汉式：类加载到内存后就实例化一个单例，JVM保证线程安全。唯一缺点：不管是否用到，类装载的时候就会实例化。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HungrySingle</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">static</span> HungrySingle INSTANCE <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HungrySingle<span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">HungrySingle</span><span style="color:#f92672">(){};</span><span style="color:#75715e">/*这是关键，让外部不能new出这个对象*/</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> HungrySingle <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">return</span> INSTANCE<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">m</span><span style="color:#f92672">(){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;m&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        HungrySingle h1 <span style="color:#f92672">=</span> HungrySingle<span style="color:#f92672">.</span><span style="color:#a6e22e">getInstance</span><span style="color:#f92672">();</span>
+        HungrySingle h2 <span style="color:#f92672">=</span> HungrySingle<span style="color:#f92672">.</span><span style="color:#a6e22e">getInstance</span><span style="color:#f92672">();</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>h1<span style="color:#f92672">==</span>h2<span style="color:#f92672">);</span><span style="color:#75715e">//true，在内存中唯一。
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="懒汉式单例模式">懒汉式单例模式</h2>
+<p>懒汉式：虽然达到了按需初始化的目的，但是有线程不安全的问题。例子从上到下依次解决问题。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LazySingle</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> LazySingle INSTANCE<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">LazySingle</span><span style="color:#f92672">(){};</span><span style="color:#75715e">/*这是关键，让外部不能new出这个对象*/</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">synchronized</span> LazySingle <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(){</span><span style="color:#75715e">//synchronized让线程安全了，但是每次进行判断该锁的情况也会导致效率降低
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>INSTANCE<span style="color:#f92672">==</span><span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+            <span style="color:#75715e">/*增大被打断几率*/</span>
+            <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+            <span style="color:#f92672">}</span>
+            INSTANCE <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LazySingle<span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> INSTANCE<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">m</span><span style="color:#f92672">(){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;m&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 100<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+           <span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(()-&gt;{</span>
+                    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>LazySingle<span style="color:#f92672">.</span><span style="color:#a6e22e">getInstance</span><span style="color:#f92672">().</span><span style="color:#a6e22e">hashCode</span><span style="color:#f92672">());</span><span style="color:#75715e">//输出给个线程拿到的对象的hashCode
+</span><span style="color:#75715e"></span>            <span style="color:#f92672">}).</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LazySingle</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> LazySingle INSTANCE<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">LazySingle</span><span style="color:#f92672">(){};</span><span style="color:#75715e">/*这是关键，让外部不能new出这个对象*/</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> LazySingle <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>INSTANCE<span style="color:#f92672">==</span><span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+            <span style="color:#75715e">/*如果采用这种方式的话也不能满足在内存中只创建了同一个对象，因为当执行到这一行的时候进来了多个线程在等待，别的线程执行结束，则这里又开始执行，每次都会创建新的LazySingle。*/</span>
+            <span style="color:#66d9ef">synchronized</span><span style="color:#f92672">(</span>LazySingle<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">){</span>
+                <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                    Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+                <span style="color:#f92672">}</span>
+                INSTANCE <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LazySingle<span style="color:#f92672">();</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> INSTANCE<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">m</span><span style="color:#f92672">(){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;m&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 100<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+           <span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(()-&gt;{</span>
+                    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>LazySingle<span style="color:#f92672">.</span><span style="color:#a6e22e">getInstance</span><span style="color:#f92672">().</span><span style="color:#a6e22e">hashCode</span><span style="color:#f92672">());</span>
+            <span style="color:#f92672">}).</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LazySingle</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">volatile</span> LazySingle INSTANCE<span style="color:#f92672">;</span><span style="color:#75715e">//让JIT能编译成对应格式文件
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">LazySingle</span><span style="color:#f92672">(){};</span><span style="color:#75715e">/*这是关键，让外部不能new出这个对象*/</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> LazySingle <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>INSTANCE<span style="color:#f92672">==</span><span style="color:#66d9ef">null</span><span style="color:#f92672">){</span><span style="color:#75715e">/*如果这一行没有判断了的话则也直接导致锁的效率降低，跟第一个例子情况一样*/</span>
+            <span style="color:#66d9ef">synchronized</span><span style="color:#f92672">(</span>LazySingle<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">){</span>
+                <span style="color:#75715e">/*双重检查可以解决上面的问题，以前的这种写法是觉得很完美的，这让单例模式越来越复杂。*/</span>
+                <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>INSTANCE<span style="color:#f92672">==</span><span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+                    <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                        Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+                    <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                        e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+                    <span style="color:#f92672">}</span>
+                    INSTANCE <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LazySingle<span style="color:#f92672">();</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> INSTANCE<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">m</span><span style="color:#f92672">(){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;m&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 100<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+           <span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(()-&gt;{</span>
+                    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>LazySingle<span style="color:#f92672">.</span><span style="color:#a6e22e">getInstance</span><span style="color:#f92672">().</span><span style="color:#a6e22e">hashCode</span><span style="color:#f92672">());</span>
+            <span style="color:#f92672">}).</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="完美的单例模式">完美的单例模式</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> Perfect1Single <span style="color:#f92672">{</span>
+    INSTANCE<span style="color:#f92672">;</span><span style="color:#75715e">//Effecive Java上的写法
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 100<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(()-&gt;{</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Perfect1Single<span style="color:#f92672">.</span><span style="color:#a6e22e">INSTANCE</span><span style="color:#f92672">.</span><span style="color:#a6e22e">hashCode</span><span style="color:#f92672">());</span>
+            <span style="color:#f92672">}).</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PerfectSingle</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">PerfectSingle</span><span style="color:#f92672">(){</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#75715e">/*内部类只有在调用了getInstance（）才会被加载，实现了懒汉式*/</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">mgrHolder</span><span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> PerfectSingle INSTANCE <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PerfectSingle<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> PerfectSingle <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">return</span> mgrHolder<span style="color:#f92672">.</span><span style="color:#a6e22e">INSTANCE</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 100 <span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(()-&gt;{</span>
+
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>PerfectSingle<span style="color:#f92672">.</span><span style="color:#a6e22e">getInstance</span><span style="color:#f92672">().</span><span style="color:#a6e22e">hashCode</span><span style="color:#f92672">());</span>
+            <span style="color:#f92672">}).</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h1 id="工厂模式">工厂模式</h1>
+<p><img src="../../../../Typora/react/img/image-20201221190433964.png" alt="image-20201221190433964"></p>
+<h2 id="工厂方法">工厂方法</h2>
+<p>不同的产品对应不同的工厂，不同的产品由不同的工厂生产。在产品上<strong>好</strong>拓展（横向的），都是平行的关系，例如坐骑，武器都是属于某个产品的（战士）。<strong>便于横向拓展，在产品维度拓展很方便。</strong></p>
+<p><img src="../../../../Typora/react/img/image-20201222023813203.png" alt="image-20201222023813203"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Moveable</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> <span style="color:#66d9ef">implements</span> Moveable <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Car</span><span style="color:#f92672">(){};</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Car is running!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Plane</span> <span style="color:#66d9ef">implements</span> Moveable <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Plane</span><span style="color:#f92672">(){};</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Plane is flying!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CarFactory</span> <span style="color:#66d9ef">implements</span> VechcleFactory <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+<span style="color:#66d9ef">public</span> Moveable <span style="color:#a6e22e">create</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">//这里可以加其他业务代码
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Car<span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlaneFactory</span> <span style="color:#66d9ef">implements</span> VechcleFactory<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Moveable <span style="color:#a6e22e">create</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//这里可以加其他业务代码
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Plane<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">VechcleFactory</span> <span style="color:#f92672">{</span>
+    Moveable <span style="color:#a6e22e">create</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Test</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        VechcleFactory factory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CarFactory<span style="color:#f92672">();</span>
+        factory<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">().</span><span style="color:#a6e22e">run</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>这样可拓展，可以重用的设计模式。</p>
+<p><img src="../../../../Typora/react/img/image-20201214160732009.png" alt="image-20201214160732009"></p>
+<h2 id="抽象工厂模式">抽象工厂模式</h2>
+<p><img src="../../../../Typora/react/img/image-20201222024230437.png" alt="image-20201222024230437"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span>  <span style="color:#a6e22e">AbstractFactory</span> <span style="color:#f92672">{</span>
+    Vehicle <span style="color:#a6e22e">createVehicle</span><span style="color:#f92672">();</span>
+    Weapon <span style="color:#a6e22e">createWeapon</span><span style="color:#f92672">();</span>
+    Food <span style="color:#a6e22e">createFood</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tea</span> <span style="color:#66d9ef">extends</span> Food <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;我在喝茶哦&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Benz</span> <span style="color:#66d9ef">extends</span> Vehicle <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;奔驰在行驶&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*名词用抽象类，形容词用接口*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Food</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*名词用抽象类，形容词用接口*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Vehicle</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*名词用抽象类，形容词用接口*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Weapon</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">play</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MagicStick</span> <span style="color:#66d9ef">extends</span> Weapon <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">play</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;魔法棒揍你&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ModernFactory</span> <span style="color:#66d9ef">implements</span> AbstractFactory <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Vehicle <span style="color:#a6e22e">createVehicle</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Benz<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Weapon <span style="color:#a6e22e">createWeapon</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> AK47<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Food <span style="color:#a6e22e">createFood</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Tea<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Test</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        AbstractFactory factory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> OldFactory<span style="color:#f92672">();</span>
+        factory<span style="color:#f92672">.</span><span style="color:#a6e22e">createFood</span><span style="color:#f92672">().</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
+        factory<span style="color:#f92672">.</span><span style="color:#a6e22e">createVehicle</span><span style="color:#f92672">().</span><span style="color:#a6e22e">run</span><span style="color:#f92672">();</span>
+        factory<span style="color:#f92672">.</span><span style="color:#a6e22e">createWeapon</span><span style="color:#f92672">().</span><span style="color:#a6e22e">play</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><img src="../../../../Typora/react/img/image-20201222030720131.png" alt="image-20201222030720131"></p>
+<p>在这种纵向拓展产品族上<strong>很困难，在产品一族上拓展很困难</strong>，需要修改具体实现的接口（例如ModernFactory）或者新添加的产品族（平行于ModerFactory的OlDFactory），要修改大量的代码。</p>
+<h1 id="代理模式">代理模式</h1>
+<h2 id="静态代理">静态代理</h2>
+<p>通过修改源代码实现代理，即对原来的对象进行加工拓展新的功能。例如日志，计时等，不是在运行时通过反射修改class文件而是执行编译后的class文件，被称为静态模式，可以相互嵌套组合。</p>
+<p><img src="../../../../Typora/react/img/image-20201222125952129.png" alt="image-20201222125952129"></p>
+<p>这种方式存在一个缺点：只能代理已知的接口的方法，例</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
